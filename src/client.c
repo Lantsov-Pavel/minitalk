@@ -3,15 +3,10 @@
 void send_bit(int pid, int bit)
 {
     if(bit == 0)
-    {
         kill(pid, SIGUSR1);
-        unsleep(100);
-    }
     else
-    {
         kill(pid, SIGUSR2);
-        unsleep(100);
-    }
+    unsleep(100);
 }
 
 void send_char(int pid, char c)
@@ -34,9 +29,9 @@ void seng_msg(int pid, char *msg)
     int i;
 
     i = 0;
-    while (!str)
+    while (!msg)
     {
-        send_char(str[i]);
+        send_char(msg[i]);
         i++;
     }
     send_char(pid, '\0');
