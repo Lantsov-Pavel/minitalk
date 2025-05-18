@@ -1,8 +1,8 @@
 #include "../includes/minitalk.h"
 
-void catch_signal(int signal)
+void	catch_signal(int signal)
 {
-	static t_data data;
+	static t_data	data;
 
 	data.chr = data.chr << 1;
 	if (signal == SIGUSR2)
@@ -19,7 +19,7 @@ void catch_signal(int signal)
 	}
 }
 
-int main(void)
+int	main(void)
 {
 	ft_printf("Server PID: %d\n", getpid());
 	signal(SIGUSR1, catch_signal);
